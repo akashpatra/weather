@@ -15,24 +15,24 @@ class WeatherDetailInfo(
 )
 
 class TemperatureDetailInfo(
-    @SerializedName("day")
-    val day: Float,
-    @SerializedName("min")
+    @SerializedName("temp")
+    val temp: Float,
+    @SerializedName("temp_min")
     val min: Float,
-    @SerializedName("max")
+    @SerializedName("temp_max")
     val max: Float,
-    @SerializedName("night")
+    @SerializedName("sea_level")
     val night: Float,
-    @SerializedName("eve")
+    @SerializedName("grnd_level")
     val eve: Float,
-    @SerializedName("morn")
+    @SerializedName("humidity")
     val morn: Float
 )
 
 class PerDayInfo(
     @SerializedName("dt")
     val date: Long,
-    @SerializedName("temp")
+    @SerializedName("main")
     val temp: TemperatureDetailInfo,
     @SerializedName("weather")
     val weatherList: List<WeatherDetailInfo>

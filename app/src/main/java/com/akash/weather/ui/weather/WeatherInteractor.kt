@@ -9,6 +9,7 @@ import com.akash.weather.ui.base.BaseInteractor
 interface WeatherInteractor : BaseInteractor {
 
     fun fetchTopHeadlines(
+        city: String,
         responseListener: BaseInteractor.IResponseListener<WeatherResponse>
     )
 }

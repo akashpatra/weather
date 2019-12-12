@@ -53,7 +53,9 @@ class WeatherFragment : BaseFragment() {
         viewModel.commonViewStateLiveData.observe(this, Observer(this::handleCommonViewState))
 
         // Fetch Forecast
-        viewModel.fetchForecast()
+        btnFetch.setOnClickListener {
+            viewModel.fetchForecast(etCity.text.toString())
+        }
     }
 
     private fun handleCommonViewState(uiState: WeatherUIState) {

@@ -33,14 +33,14 @@ android {
             versionCode 1
             versionName TEST_VERSION + "_DEV"
             buildConfigField "boolean", "IS_PROD", "false"
-            buildConfigField "String", "BASE_URL", '"http://api.openweathermap.org/"'
+            buildConfigField "String", "BASE_URL", '"https://api.openweathermap.org/"'
         }
 
         prod {
             versionCode 1
             versionName "1.0.0"
             buildConfigField "boolean", "IS_PROD", "true"
-            buildConfigField "String", "BASE_URL", '"http://api.openweathermap.org/"'
+            buildConfigField "String", "BASE_URL", '"https://api.openweathermap.org/"'
         }
     }
 

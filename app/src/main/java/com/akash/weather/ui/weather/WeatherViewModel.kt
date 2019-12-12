@@ -24,8 +24,8 @@ class WeatherViewModel(private val interactor: WeatherInteractor) : BaseViewMode
     /**
      * Fetch Forecast.
      */
-    fun fetchForecast() {
-        interactor.fetchTopHeadlines(
+    fun fetchForecast(city: String) {
+        interactor.fetchTopHeadlines(city,
             object : BaseInteractor.IResponseListener<WeatherResponse> {
 
                 override fun onProgress() {
@@ -60,7 +60,7 @@ class WeatherViewModel(private val interactor: WeatherInteractor) : BaseViewMode
                 modifiedWeather.add(
                     ForecastUIModel(
                         perDayInfo.date.toString(),
-                        perDayInfo.temp.day.toString(),
+                        perDayInfo.temp.temp.toString(),
                         perDayInfo.temp.min.toString(),
                         perDayInfo.temp.max.toString(),
                         perDayInfo.temp.night.toString(),

@@ -16,7 +16,6 @@ interface ApiHelper {
     @GET("data/2.5/forecast")
     fun fetchWeatherForecast(
         @Query("q") city: String,
-        @Query("appid") apiKey: String,
-        @Query("cnt") days: String
+        @Query("appid") apiKey: String
     ): Single<WeatherResponse>
 }

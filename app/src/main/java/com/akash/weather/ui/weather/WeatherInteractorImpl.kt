@@ -2,6 +2,7 @@ package com.akash.weather.ui.weather
 
 import com.akash.weather.exceptions.ApiResponseException
 import com.akash.weather.repo.network.ApiHelper
+import com.akash.weather.repo.network.NetworkConstants
 import com.akash.weather.repo.network.model.WeatherResponse
 import com.akash.weather.ui.base.BaseInteractor
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -24,13 +25,14 @@ class WeatherInteractorImpl @Inject constructor(
     private lateinit var disposable: Disposable
 
     override fun fetchTopHeadlines(
+        city: String,
         responseListener: BaseInteractor.IResponseListener<WeatherResponse>
     ) {
         // Show Progress
         responseListener.onProgress()
 
         disposable =
-            apiHelper.fetchWeatherForecast("München,DE", "b6907d289e10d714a6e88b30761fae22", "8")
+            apiHelper.fetchWeatherForecast("$city,IN", NetworkConstants.API_KEY)
                 .map { resp ->
                     if ("200" == resp.status) {
                         Timber.d("$className >> fetchWeatherForecast>> Resp: $resp")
